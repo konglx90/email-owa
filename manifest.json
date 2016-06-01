@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "email_owa_auto_fill_in",
+    "version": "1.0",
+    "description": "一个为owa自动填写收件人、主题、邮件正文的小插件， 为了方便写搜狐的工作日报， 及避免忘了写邮件主题",
+    "content_scripts": [
+        {
+            "matches": ["*://mail.sohu-inc.com/owa/?ae=Item&t=IPM.Note&a=New"],
+            "js": ["email_owa.js"]
+        }
+    ]
+}
