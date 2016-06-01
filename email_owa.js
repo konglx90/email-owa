@@ -11,7 +11,8 @@ function email_owa() {
             '18215565503@163.com ' +
             '<span class="sq">[<a href="#" onclick="return onClkRmRcp(\'1,0\')">删除</a>]</span></span></div></td></tr></tbody></table>' +
             '<input type="text" name="txtto" id="txtto" class="edt" value="" maxlength="1000" onchange="onChg();">';
-
+        body_template = '<textarea name="txtbdy" title="邮件正文" rows="19" ' +
+        'cols="104" onchange="onChgBdy();">今日完成: \n\n1. \n2. \n\n 祝好， \n\nQQ: 2403693382 </textarea>';
 
     /***********************对主题操作*******************/
     subject.setAttribute("type", "button");  // TODO 疑似是owa网站的bug
@@ -28,9 +29,11 @@ function email_owa() {
     /**********************对正文操作**********************/
     //console.log(body);   TODO 不知道为什么直接在原来的节点上加入文本没有用
     var body_parent = body.parentNode;
-    body_parent.removeChild(body);
-    body_parent.innerHTML = '<textarea name="txtbdy" title="邮件正文" rows="19" ' +
-        'cols="104" onchange="onChgBdy();">今日完成: \n\n1. \n2. \n\n 祝好， \n\nQQ: 2403693382 </textarea>';
+    //console.log(body.outerHTML, body.title, body.form, body.value);
+    if (body.value === '') {
+        body_parent.removeChild(body);
+        body_parent.innerHTML = body_template;
+    }
 
     /*********************对收件人操作**********************/
     //var to_parent = to.parentNode;
