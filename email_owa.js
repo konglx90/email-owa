@@ -1,4 +1,4 @@
-function eamil_owa() {
+function email_owa() {
 
     var to = document.getElementById('txtto'),
         subject = document.getElementById('txtsbj'),
@@ -39,4 +39,4 @@ function eamil_owa() {
     // TODO
 }
 
-eamil_owa();
+email_owa();
